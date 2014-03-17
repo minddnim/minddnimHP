@@ -3,8 +3,11 @@
 <html lang="ja">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
-	<title>皿</title>
+	<title>LN表クリアデータ</title>
 	<meta http-equiv="Content-Script-Type" content="text/javascript">
+<link rel="stylesheet" href="./themes/green/style1.css" type="text/css" media="print, projection, screen" />
+<script src="./jquery-latest.js" type="text/javascript"></script> 
+<script src="./jquery.tablesorter.min.js" type="text/javascript"></script> 
 <Meta http-equiv="Content-Style-Type" content="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
 
@@ -222,218 +225,22 @@ document.write(fhp_wt);
 <!-- FC2, inc.-->
 </body>
 
-<table align="center" cellspacing="3" id="table1">
-<tr bgcolor="#070007" height="20" style="color:white">
-		<td align="center">◎</td>
-		<td></td>
-		<td align="center">LR</td>
-		<td align="center">music title</td>
-		<td align="center">original artist</td>
-		<td align="center">score site</td>
-
-		<td width="260px" align="center">comment</td>
+<table align="center" cellspacing="3" id="table1" class="tablesorter">
+	<thead>
+		<tr>
+			<th align="center"><font color='white'>ID</font></th>
+			<th align="center"><font color='white'>◆</font></th>
+			<th align="center"><font color='white'>music title</font></th>
+			<th align="center"><font color='white'>FC(%)</font></th>
+			<th align="center"><font color='white'>Hard(%)</font></th>
+			<th align="center"><font color='white'>Clear(%)</font></th>
+			<th align="center"><font color='white'>FC</font></th>
+			<th align="center"><font color='white'>Hard</font></th>
+			<th align="center"><font color='white'>Normal</font></th>
+			<th align="center"><font color='white'>Easy</font></th>
+			<th align="center"><font color='white'>Failed</font></th>
+			<th align="center"><font color='white'>Player</font></th>
+		</tr>
+	</thead>
   <script language="javascript" type="text/javascript">
 <!--//
-///////////////////曲のデータ(75番まで使ってるよ！)///////////////////
-
-var mname = [
-
-    [76,"◎2",
-      "HE is an Energizer(Joker-S-)",
-      "122668",
-      "<a href='http://flowermaster.web.fc2.com/'>奈那樹</a>",
-      "<A href='http://www.geocities.co.jp/HiTeens-Penguin/8342/'>Mr.ABC</A>",
-      "",
-    ], 
-
-    [77,"◎2",
-      "P8107 [yumether◎]",
-      "126849",
-      "<a href='http://yumerusabun.web.fc2.com/nue.html'>夢瑠</a>",
-      "原曲場所が不明",
-    ], 
-
-    [78,"◎2",
-      "東の国のFLYING PAPARAZZI！[ hinather 皿 ]",
-      "115647",
-      "<a href='http://ayahina24.web.fc2.com/'>彩雛</a>",
-      "<a href='http://www.geocities.jp/bmsetc/'>樋奈月みつ / obj:giselle</a>",
-      "",
-    ], 
-
-    [79,"◎2",
-      "Blue. by Hand Made Socket(☆10)",
-      "18366",
-      "<a href='http://flowermaster.web.fc2.com/'>奈那樹</a>",
-      "同梱譜面",
-      "",
-    ], 
-
-
-
-
-
-    [80,"◎3",
-      "HE is an Energizer(Joker-S+-)",
-      "123060",
-      "<a href='http://flowermaster.web.fc2.com/'>奈那樹</a>",
-      "<A href='http://www.geocities.co.jp/HiTeens-Penguin/8342/'>Mr.ABC</A>",
-      "",
-    ], 
-
-    [81,"◎3",
-      "macaron (゜皿゜)",
-      "122826",
-      "<a href='http://ayahina24.web.fc2.com/'>彩雛</a>",
-      "<a href='http://estish.nobody.jp/'>Est</a>",
-      "",
-    ], 
-
-
-
-
-
-    [82,"◎4",
-      "四十五年ノ雪桜 BBAnother",
-      "129208",
-      "<a href='http://flowermaster.web.fc2.com/'>BBA</a>",
-      "<a href='http://16thnotes.ebb.jp/'>kozato</a>",
-      "",
-    ], 
-
-    [83,"◎4",
-      "皿投げプリンセス[HYPER]",
-      "158213",
-      "<a href='http://www.geocities.jp/dsks5456/osg.html'>お下げ</a>",
-      "同梱譜面",
-      "",
-    ], 
-
-
-
-
-
-    [84,"◎6",
-      "squartatrice -あたしって、ほんと皿-",
-      "125765",
-      "<a href='http://dee.manbow.org/event/event.cgi?action=More_def&num=99&event=74'>美樹さやか vs. 美樹さやか (fw. 美樹さやか) BGA ： 美樹さやか</a>",
-      "<a href='http://ayahina24.web.fc2.com/'>彩雛</a>",
-      "",
-    ], 
-
-    [85,"◎6",
-      "Blue. by Hand Made Socket(☆14)",
-      "19163",
-      "<a href='http://flowermaster.web.fc2.com/'>奈那樹</a>",
-      "同梱譜面",
-      "",
-    ], 
-
-    [86,"◎6",
-      "Into the sunset [HYPER]",
-      "7359",
-      "<a href='http://www001.upp.so-net.ne.jp/keyc/'>keyc</a>",
-      "同梱譜面",
-      "",
-    ], 
-
-
-
-    [87,"◎7",
-      "Lang Tone",
-      "84321",
-      "<a href='http://www.luzeria.net/?p=387'>ルゼ</a>",
-      "<a href='http://yumerusabun.web.fc2.com/nue.html'>夢瑠</a>",
-      "",
-    ], 
-
-    [88,"◎7",
-      "Fastraffic　[｀皿´]",
-      "125325",
-      "<a href='http://houjirou.at-ninja.jp/'>HOUJIROU</a>",
-      "<a href='http://ayahina24.web.fc2.com/'>彩雛</a>",
-      "",
-    ], 
-
-
-
-
-
-    [89,"◎8",
-      "Koishi ～Closed EyEs [SCRACH]",
-      "120511",
-      "<a href='http://ayahina24.web.fc2.com/'>彩雛</a>",
-      "<a href='http://page.freett.com/ykyk00/'>くっちー</a>",
-      "",
-    ], 
-
-    [90,"◎8",
-      "Love & Justice [RIETHER]",
-      "175778",
-      "<a href='http://manbow.nothing.sh/event/event.cgi?action=More_def&num=227&event=65'>フロン / ラズベリル</a>",
-      "差分をskyDriveにアップする必要があります",
-      "",
-    ], 
-
-
-
-
-
-    [91,"◎9",
-      "rainy beauty [yumether]",
-      "77002",
-      "<a href='http://yumerusabun.web.fc2.com/nue.html'>夢瑠</a>",
-      "<a href='http://manbow.nothing.sh/event/event.cgi?action=More_def&num=159&event=60'>Rabbit Bat</a>",
-      "",
-    ], 
-
-    [92,"◎9",
-      "モリオンの姫 [yumether◎]",
-      "77698",
-      "<a href='http://yumerusabun.web.fc2.com/nue.html'>夢瑠</a>",
-      "<a href='http://manbow.nothing.sh/event/event.cgi?action=More_def&num=12&event=60'>wa.</a>",
-      "",
-    ], 
-
-
-
-
-
-    [93,"◎10",
-      "Happico 皿 Happico",
-      "128473",
-      "<a href='http://www1.axfc.net/uploader/Li/so/128884'>しらいし</a>",
-      "差分をskyDriveにアップする必要があります",
-      "",
-    ],
-
-    [94,"◎10",
-      "Yummy Dancefloor!! [SC]",
-      "168825",
-      "",
-      "<a href='http://manbow.nothing.sh/event/event.cgi?action=List_def&event=88'>BOF2013より</a>",
-      "",
-    ], 
-    ];
-  for (var i=0;i < mname.length;i++) {
-  	if(mname[i][0]==76||mname[i][0]==80||mname[i][0]==82||mname[i][0]==84||mname[i][0]==87||mname[i][0]==89||mname[i][0]==95||mname[i][0]==91||mname[i][0]==93)
-  		document.write("<tr height='10' style='background-color:#003300'><td colspan='9'>");
-     document.write("<tr class='tr_ng' id='#tr"+mname[i][0]+"' style='color:black;font-size:12px' height='14'>"+
-     "<td width='45' align='center'>"+mname[i][1]+
-     "<td><input type=button value='   '>"+
-
-     "<td width='16'><a href='http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=ranking&bmsid="+mname[i][3]+"'><center>IR</center></a>"+
-     "<td>"+mname[i][2]+
-     "<td>"+mname[i][5]+
-     "<td>"+mname[i][4]+
-     "<td>"+mname[i][6]+
-     "\n");
-  }
-  
-  //-->
-  </script>
-  </table>
-<div align="center" ><strong><a href="index.html" target="_top">戻る</a></strong></div>
-
-
-</html>

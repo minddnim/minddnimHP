@@ -1,0 +1,497 @@
+
+<!DOCTYPE HTML PLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	<title>皿難易度表(提案表)</title>
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+<Meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<style type="text/css">
+.tr1 {
+  color:#cccccc;
+}
+.tr_ok {
+  background-color:#00FFFF;
+}
+.tr_ng {
+  background-color:#C0C0C0;
+}
+.tr_hd{
+  background-color:red;
+}
+.tr_ez{
+  background-color:#66FF99
+  }
+.tr_fc{
+  background-color:#FFD700
+  }
+a:link{
+	color:"richblue";
+}
+a:visited{
+	color:"limegreen";
+}
+a:hover{
+	color:"red";
+	background-color:"yellow";
+}
+a:active{
+	color:"red";
+	background-color:"yellow";
+}
+</style>
+
+<script language="javascript" type="text/javascript">
+<!--
+// データの読み込み
+function getsc() {
+	var m = new Date().getMonth();
+	if (m%2==1){
+		document.body.style.filter="progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr='#ccccccff', EndColorStr='#ffffffff')";
+		document.body.text="black";
+	}else{
+		document.body.style.filter="progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr='#cc000033', EndColorStr='#ff000000')";
+		document.body.text="white";
+	}
+}
+
+// クッキーの読み込み
+function loadCookie(name) {
+  var bData = "";
+  var cName = name + "~"; // クッキー名
+  var cCookie = document.cookie+";";
+  var str = cCookie.indexOf(cName);
+  if(str != -1) {
+     end = cCookie.indexOf(";",str);
+     bData = unescape(cCookie.substring(str + cName.length, end));
+  }
+  return bData;
+}
+
+// クッキーの書き込み
+function saveCookie(name,dValue) {
+  var cName = name + "~"; // クッキー名
+  var cDays = 365; // データの保存日数
+  var setPre = new Date();
+  setPre.setTime(setPre.getTime() + (cDays*1000*24*3600));
+  var prd = setPre.toGMTString();
+  document.cookie = cName + escape(dValue) + ";expires=" + prd;
+}
+// クリアデータのの削除
+function deletedt() {
+  cName = "tmpdt~"; // 削除するクッキー名
+  dTime = new Date();
+  dTime.setYear(dTime.getYear() - 1);
+  document.cookie = cName + ";expires=" + dTime.toGMTString();
+}
+
+var CookieValue = new Array(2000); //* 個のデータを保存できる
+
+//CookieValue の初期化 と読み込み、ボタンの onclick イベント設定
+function initCookieValue() {
+  
+  for (var i=0;i < CookieValue.length;i++) CookieValue[i] = 0;
+  
+  var imps = document.getElementById("table1").getElementsByTagName("input");
+  var nVal = "" + loadCookie("tmpdt");
+
+//  alert("Cookies="+nVal);
+
+  for (var i=0;i < nVal.length;i++)
+     CookieValue[i] = nVal.charAt(i)-0;
+
+  for (var i=0;i < imps.length;i++) {
+     imps[i].onclick=function(e) {
+        var o;
+        if (window.event) e = window.event;
+        o = e.srcElement ? e.srcElement : e.target;
+
+        while (o.nodeName.toLowerCase() != "tr") o = o.parentNode;
+
+        var idx = parseInt(o.id.replace("#tr",""),10);
+        if (o.className == "tr_ng") 
+        {
+           o.className = "tr_ez";
+           CookieValue[idx] = 1;
+        }
+        else if (o.className == "tr_ez")
+        {
+        o.className = "tr_ok";
+        CookieValue[idx] = 2;
+        
+        }
+        
+        
+　　　　else if (o.className == "tr_ok")
+        {
+        o.className = "tr_hd";
+        CookieValue[idx] = 3;
+
+        
+        }
+　　　　else if (o.className == "tr_hd")
+        {
+        o.className = "tr_fc";
+        CookieValue[idx] = 4;
+        
+        }
+
+        
+        else {
+           o.className = "tr_ng";
+           CookieValue[idx] = 0;
+        }
+        backupCookie();
+     }
+var tr;
+switch(CookieValue[mname[i][0]]){
+case 0:
+tr="tr_ng";
+break;
+case 1:
+tr="tr_ez";
+break;
+case 2:
+tr="tr_ok";
+break;
+case 3:
+tr="tr_hd";
+break;
+case 4:
+tr="tr_fc";
+break;
+}
+document.getElementById("#tr"+mname[i][0]).className = tr;
+
+}
+function backupCookie() {
+  saveCookie("tmpdt",CookieValue.join(""));
+}
+}
+-->
+
+</script>
+</head><BODY bgcolor=#000000 text="#FFFFFF" onload="initCookieValue()&getsc()"><!--  背景色とかそんなん -->
+<!-- St-HP-H -->
+
+ 
+
+<!-- En-HP-H -->
+
+
+
+
+<!-- 
+var fhp_c_pc = navigator.userAgent.toLowerCase();
+var fhp_ie = ((fhp_c_pc.indexOf("msie") != -1) && (fhp_c_pc.indexOf("opera") == -1));
+var fhp_cs, fhp_wt, fhp_dm;
+
+if (fhp_ie) {
+        fhp_cs = document.charset;
+}else{
+        fhp_cs = document.characterSet;
+}
+fhp_dm = encodeURI(document.location);
+
+fhp_wt = "";
+fhp_wt = '<' + 'script src="http://web.fc2.com/header.php?cs=' + fhp_cs + '&dm=' + fhp_dm + '" charset="UTF-8"><' + '/script>';
+fhp_wt += '<' + 'script src="http://web.fc2.com/footer/footer.php?cs=' + fhp_cs + '&dm=' + fhp_dm + '"><' + '/script>';
+document.write(fhp_wt);
+//--></script>
+<!-- FC2, inc.-->
+<img src="http://media.fc2.com/counter_img.php?id=50" style="visibility:hidden" alt="inserted by FC2 system" width="0" height="0">
+<!-- FC2, inc.-->
+<script type="text/javascript"><!--
+var fhp_c_pc = navigator.userAgent.toLowerCase();
+var fhp_ie = ((fhp_c_pc.indexOf("msie") != -1) && (fhp_c_pc.indexOf("opera") == -1));
+var fhp_cs, fhp_wt, fhp_dm;
+var fhp_rnd = Math.floor(Math.random()*99999999999);
+if (fhp_ie) {
+	fhp_cs = document.charset;
+}else{
+	fhp_cs = document.characterSet;
+}
+fhp_dm = document.location;
+fhp_wt = '<' + 'script src="http://web.fc2.com/footer/footer.php?cs=' + fhp_cs + '&dm=' + fhp_dm + '&rnd=' + fhp_rnd + '" charset="UTF-8"><' + '/script>';
+document.write(fhp_wt);
+//--></script>
+<!-- FC2, inc.-->
+<img src="http://media.fc2.com/counter_img.php?id=50" style="visibility:hidden" alt="inserted by FC2 system" width="0" height="0" />
+<!-- FC2, inc.-->
+</body>
+
+<table align="center" cellspacing="3" id="table1">
+<tr bgcolor="#070007" height="20" style="color:white">
+		<td align="center">◎</td>
+		<td></td>
+		<td align="center">LR</td>
+		<td align="center">music title</td>
+		<td align="center">original artist</td>
+		<td align="center">score site</td>
+
+		<td width="260px" align="center">comment</td>
+  <script language="javascript" type="text/javascript">
+<!--//
+var mname = [
+[1,"◎0",
+"1972s broken toys",
+"77861",
+"<a href='http://manbow.nothing.sh/event/event.cgi?action=List_def&event=65'>BOF2010より</a>",
+"",
+"",
+],
+[2,"◎0",
+"caterpillar song",
+"78249",
+"<a href='http://manbow.nothing.sh/event/event.cgi?action=List_def&event=65'>BOF2010より</a>",
+"",
+"",
+],
+[3,"◎0",
+"桜華月 [7key Light]_ALLSCR ver",
+"178570",
+"<a href='http://page.freett.com/akito11/index.html'>AKITO</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>ASCR_Tool</a>",
+"sara_sakura_7light.bme",
+],
+[4,"◎0",
+"Pure Ruby [Light]_ALLSCR ver",
+"178591",
+"<a href='http://shiki2.sakura.ne.jp/'>SHIKI</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>ASCR_Tool</a>",
+"sara_pure7l.bme",
+],
+[5,"◎1",
+"Me Tale Though [HYPER]",
+"168816",
+"<a href='http://manbow.nothing.sh/event/event.cgi?action=List_def&event=88'>BOF2013より</a>",
+"",
+"",
+],
+[6,"◎1",
+"Cat. by Full Metal Jacket [BASIC]",
+"44972",
+"<a href='http://freett.com/nitrix/'>MIKE</a>",
+"<a href='http://freett.com/nitrix/'>MIKE</a>",
+"原曲「Disc Jockey MIKE」のおまけ差分",
+],
+[7,"◎2",
+"ラミィ・ホーミィ",
+"141100",
+"<a href='http://manbow.nothing.sh/event/event.cgi?action=List_def&event=83'>BOF2012より</a>",
+"",
+"",
+],
+[8,"◎2",
+"B.B.K.K.B.K.K. (ANOTHER)_ALLSCR ver",
+"178325",
+"<a href='http://manbow.nothing.sh/event/event.cgi?action=List_def&event=88'>BOF2013より</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>ASCR_Tool</a>",
+"sara__a.bme",
+],
+[9,"◎2",
+"ドラゴンクエストⅢ　～ラーミア～ (オーブスクラッチ)",
+"176956",
+"<a href='http://www5a.biglobe.ne.jp/~zang/bm/bms.html'>ZANG</a>",
+"<a href='http://www1.axfc.net/u/3141850'>キャットフライ</a>",
+"",
+],
+[10,"◎2",
+"少女の舞葬_ALLSCR ver",
+"179262",
+"<a href='http://toymusical.bms.ms/tm2/index.html'>ぷらすちっくと女の子</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>ASCR_Tool</a>",
+"sara_03_maisou-h.bme",
+],
+[11,"◎2",
+"Qualia[Another]_SCR ver",
+"179385",
+"<a href='http://dl.dropboxusercontent.com/u/93651732/Web/index.htm'>Junk</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>MIND</a>",
+"sara_7a.bme",
+],
+[12,"◎3",
+"Cat. by Full Metal Jacket [7]",
+"44974",
+"<a href='http://freett.com/nitrix/'>MIKE</a>",
+"<a href='http://freett.com/nitrix/'>MIKE</a>",
+"原曲「Disc Jockey MIKE」のおまけ差分",
+],
+[13,"◎3",
+"S oz S [ANOTHER]",
+"84977",
+"<a href='http://sdrv.ms/1bZPbBm'>ETIA. vs MM Sequence</a>",
+"",
+"代理UP",
+],
+[14,"<font color='red'>◎3</font>",
+"MIGHTY OBSTACLE_SCR ver",
+"179465",
+"<a href='http://web.archive.org/web/20090416225824/http://homepage3.nifty.com/halm-berte/exc'>EXCALIpUR</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>MIND</a>",
+"sara_ys6mo_r07.bme",
+],
+[15,"◎4",
+"Tuk Tuk Boshi [hinather_SC]",
+"177162",
+"<a href='http://manbow.nothing.sh/event/event.cgi?action=More_def&num=189&event=65'>Shaman Cure-All</a>",
+"<a href='http://ayahina24.web.fc2.com/toppage.html'>舞雛</a>",
+"",
+],
+[16,"◎4",
+"CHERRY DOLL(Another)_ALLSCR ver",
+"179267",
+"<a href='http://www1.axfc.net/uploader/C/so/127409'>カラフル・サウンズ・ポート</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>ASCR_Tool</a>",
+"sara_cherry_doll_a",
+],
+[17,"◎4",
+"Project 8 -忙しい人のための皿-",
+"149889",
+"<a href='http://www1.axfc.net/uploader/Si/so/152545'>コピーBMS</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>MIND</a>",
+"project_busy_sara.bms",
+],
+[18,"◎4",
+"Me Tale Though [ANOTHER]",
+"168395",
+"<a href='http://manbow.nothing.sh/event/event.cgi?action=List_def&event=88'>BOF2013より</a>",
+"",
+"",
+],
+[19,"<font color='red'>◎4</font>",
+"ETERNAL DRAIN (NANATHER ◎)",
+"118252",
+"<a href='http://www1.axfc.net/uploader/C/so/127409'>カラフル・サウンズ・ポート</a>",
+"<a href='http://flowermaster.web.fc2.com/'>奈那樹</a>",
+"差分作成企画→第五回差分企画",
+],
+[20,"<font color='red'>◎4</font>",
+"Flesvelka HYPER_SCR ver",
+"179463",
+"<a href='http://www5f.biglobe.ne.jp/~careless/'>Grand Thaw</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>MIND</a>",
+"sara_flesvelka[H].bme",
+],
+[21,"◎5",
+"Cat. by Full Metal Jacket [7A]",
+"44975",
+"<a href='http://freett.com/nitrix/'>MIKE</a>",
+"<a href='http://freett.com/nitrix/'>MIKE</a>",
+"原曲「Disc Jockey MIKE」のおまけ差分",
+],
+[22,"◎5",
+"S oz S [SCRATCH MANIA]",
+"86691",
+"<a href='http://sdrv.ms/1bZPbBm'>ETIA. vs MM Sequence</a>",
+"",
+"代理UP",
+],
+[23,"◎5",
+"風仁雷仁(EX)_SCR ver",
+"179265",
+"<a href='http://nekokan.dyndns.info/~lobsak/genoside/index.html'>カラフル・サウンズ・ポート</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>MIND</a>",
+"sara_hujin_x.bme",
+],
+[24,"◎9",
+"Imperishable Night 2006-SP ANOTHER-_ALLSCR ver",
+"179266",
+"<a href='http://tsubu.ath.cx/~ssry/'>篠螺悠那 feat. 鯛の小骨</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>ASCR_Tool</a>",
+"sara_Imperishable Night 2006 穴.bme",
+],
+[25,"◎9",
+"WALL BATTLE（VS MUDCAT）_SCR ver",
+"179285",
+"<a href='http://suikacrash.s370.xrea.com/event.cgi?mode=view&no=2'>ルゼ</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>MIND</a>",
+"sara_wall_battle_vs_MUDCAT.bme",
+],
+[26,"◎10",
+"Altersist [SP ASCR]",
+"114590",
+"<a href='http://mournfinale.com/?page_id=501'>void</a>",
+"<a href='http://absolute.pv.land.to/bmsuploader.html'>JINSAY</a>",
+"",
+],
+[27,"◎11",
+"compressed eyes -kusomiso-_SCR ver",
+"178651",
+"<a href='http://sdrv.ms/RGziYJ'>sky drive</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>MIND</a>",
+"sara_compressed-kusomiso.bme",
+],
+[28,"<font color='red'>◎11</font>",
+"Liberte-SuperSaw Epic mix- -ANOTHER-_ALLSCR ver",
+"179461",
+"<a href='http://web.archive.org/web/20071018083604/http://minamotrance.com/Liberte.rar'>源屋</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>ASCR_Tool</a>",
+"sara_Liberte-Another_bga.bme　発狂難易度表★4の全皿",
+],
+[29,"◎13",
+"More quaver♪_ALLSCR ver",
+"178567",
+"<a href='http://www.geocities.jp/dsks5456/osg.html'>お下げ</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>ASCR_Tool</a>",
+"sara_morequa.bme",
+],
+[30,"◎13",
+"Parousia[HARD]_SCR ver",
+"179278",
+"<a href='http://manbow.nothing.sh/event/event.cgi?action=More_def&num=281&event=74'>xi</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>MIND</a>",
+"sara__parousia_HA.bme",
+],
+[31,"◎13",
+"LOST‡EDEN [HYPER]_ALLSCR ver",
+"179281",
+"<a href='http://sdrv.ms/1bZPbBm'>因習打破</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>ASCR_Tool</a>",
+"sara_LEh.bme  肩を壊さないようにしてください。",
+],
+[32,"◎14",
+"歪んだ樹_ALLSCR ver",
+"178569",
+"<a href='http://skydrive.live.com/?cid=d34bfc70cbe5e695&id=D34BFC70CBE5E695%21103'>次元大介</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>ASCR_Tool</a>",
+"sara_Boss_Battle_ki.bme",
+],
+[33,"◎14",
+"Time files -SP AMETHER-_ALLSCR ver",
+"179082",
+"<a href='http://skydrive.live.com/?cid=FD93B4F2CB8CD95F&id=FD93B4F2CB8CD95F%21105'>xi</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>ASCR_Tool</a>",
+"sara_Time files -SP AMETHER-.bme",
+],
+[34,"◎15",
+"Platinum[sANOTHER]_SCR ver",
+"179376",
+"<a href='http://sdrv.ms/1bZPbBm'>DJ.kari</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>MIND</a>",
+"sara_Platinum_sA.bme またはPlatinum.zip",
+]];
+  for (var i=0;i<mname.length;i++) {
+if(mname[i][0]==1||mname[i][0]==5||mname[i][0]==7||mname[i][0]==12||mname[i][0]==15||mname[i][0]==21||mname[i][0]==24||mname[i][0]==26||mname[i][0]==27||mname[i][0]==29||mname[i][0]==32||mname[i][0]==34)
+  		document.write("<tr height='10' style='background-color:#003300'><td colspan='9'>");
+     document.write("<tr class='tr_ng' id='#tr"+mname[i][0]+"' style='color:black;font-size:12px' height='14'>"+
+     "<td width='45' align='center'>"+mname[i][1]+
+     "<td><input type=button value='   '>"+
+
+     "<td width='16'><a href='http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=ranking&bmsid="+mname[i][3]+"'><center>IR</center></a>"+
+     "<td>"+mname[i][2]+
+     "<td>"+mname[i][4]+
+     "<td>"+mname[i][5]+
+     "<td>"+mname[i][6]+
+     "\n");
+  }
+  
+  //-->
+  </script>
+  </table>
+<div align="center" ><strong><a href="index.html" target="_top">戻る</a></strong></div>
+
+
+</html>

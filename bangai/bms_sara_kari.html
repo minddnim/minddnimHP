@@ -1,0 +1,329 @@
+
+<!DOCTYPE HTML PLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	<title>皿難易度表(提案表)</title>
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+<Meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<style type="text/css">
+.tr1 {
+  color:#cccccc;
+}
+.tr_ok {
+  background-color:#00FFFF;
+}
+.tr_ng {
+  background-color:#C0C0C0;
+}
+.tr_hd{
+  background-color:red;
+}
+.tr_ez{
+  background-color:#66FF99
+  }
+.tr_fc{
+  background-color:#FFD700
+  }
+a:link{
+	color:"richblue";
+}
+a:visited{
+	color:"limegreen";
+}
+a:hover{
+	color:"red";
+	background-color:"yellow";
+}
+a:active{
+	color:"red";
+	background-color:"yellow";
+}
+</style>
+
+<script language="javascript" type="text/javascript">
+<!--
+// データの読み込み
+function getsc() {
+	var m = new Date().getMonth();
+	if (m%2==1){
+		document.body.style.filter="progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr='#ccccccff', EndColorStr='#ffffffff')";
+		document.body.text="black";
+	}else{
+		document.body.style.filter="progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr='#cc000033', EndColorStr='#ff000000')";
+		document.body.text="white";
+	}
+}
+
+// クッキーの読み込み
+function loadCookie(name) {
+  var bData = "";
+  var cName = name + "~"; // クッキー名
+  var cCookie = document.cookie+";";
+  var str = cCookie.indexOf(cName);
+  if(str != -1) {
+     end = cCookie.indexOf(";",str);
+     bData = unescape(cCookie.substring(str + cName.length, end));
+  }
+  return bData;
+}
+
+// クッキーの書き込み
+function saveCookie(name,dValue) {
+  var cName = name + "~"; // クッキー名
+  var cDays = 365; // データの保存日数
+  var setPre = new Date();
+  setPre.setTime(setPre.getTime() + (cDays*1000*24*3600));
+  var prd = setPre.toGMTString();
+  document.cookie = cName + escape(dValue) + ";expires=" + prd;
+}
+// クリアデータのの削除
+function deletedt() {
+  cName = "tmpdt~"; // 削除するクッキー名
+  dTime = new Date();
+  dTime.setYear(dTime.getYear() - 1);
+  document.cookie = cName + ";expires=" + dTime.toGMTString();
+}
+
+var CookieValue = new Array(2000); //* 個のデータを保存できる
+
+//CookieValue の初期化 と読み込み、ボタンの onclick イベント設定
+function initCookieValue() {
+  
+  for (var i=0;i < CookieValue.length;i++) CookieValue[i] = 0;
+  
+  var imps = document.getElementById("table1").getElementsByTagName("input");
+  var nVal = "" + loadCookie("tmpdt");
+
+//  alert("Cookies="+nVal);
+
+  for (var i=0;i < nVal.length;i++)
+     CookieValue[i] = nVal.charAt(i)-0;
+
+  for (var i=0;i < imps.length;i++) {
+     imps[i].onclick=function(e) {
+        var o;
+        if (window.event) e = window.event;
+        o = e.srcElement ? e.srcElement : e.target;
+
+        while (o.nodeName.toLowerCase() != "tr") o = o.parentNode;
+
+        var idx = parseInt(o.id.replace("#tr",""),10);
+        if (o.className == "tr_ng") 
+        {
+           o.className = "tr_ez";
+           CookieValue[idx] = 1;
+        }
+        else if (o.className == "tr_ez")
+        {
+        o.className = "tr_ok";
+        CookieValue[idx] = 2;
+        
+        }
+        
+        
+　　　　else if (o.className == "tr_ok")
+        {
+        o.className = "tr_hd";
+        CookieValue[idx] = 3;
+
+        
+        }
+　　　　else if (o.className == "tr_hd")
+        {
+        o.className = "tr_fc";
+        CookieValue[idx] = 4;
+        
+        }
+
+        
+        else {
+           o.className = "tr_ng";
+           CookieValue[idx] = 0;
+        }
+        backupCookie();
+     }
+var tr;
+switch(CookieValue[mname[i][0]]){
+case 0:
+tr="tr_ng";
+break;
+case 1:
+tr="tr_ez";
+break;
+case 2:
+tr="tr_ok";
+break;
+case 3:
+tr="tr_hd";
+break;
+case 4:
+tr="tr_fc";
+break;
+}
+document.getElementById("#tr"+mname[i][0]).className = tr;
+
+}
+function backupCookie() {
+  saveCookie("tmpdt",CookieValue.join(""));
+}
+}
+-->
+
+</script>
+</head><BODY bgcolor=#000000 text="#FFFFFF" onload="initCookieValue()&getsc()"><!--  背景色とかそんなん -->
+<!-- St-HP-H -->
+
+ 
+
+<!-- En-HP-H -->
+
+
+
+
+<!-- 
+var fhp_c_pc = navigator.userAgent.toLowerCase();
+var fhp_ie = ((fhp_c_pc.indexOf("msie") != -1) && (fhp_c_pc.indexOf("opera") == -1));
+var fhp_cs, fhp_wt, fhp_dm;
+
+if (fhp_ie) {
+        fhp_cs = document.charset;
+}else{
+        fhp_cs = document.characterSet;
+}
+fhp_dm = encodeURI(document.location);
+
+fhp_wt = "";
+fhp_wt = '<' + 'script src="http://web.fc2.com/header.php?cs=' + fhp_cs + '&dm=' + fhp_dm + '" charset="UTF-8"><' + '/script>';
+fhp_wt += '<' + 'script src="http://web.fc2.com/footer/footer.php?cs=' + fhp_cs + '&dm=' + fhp_dm + '"><' + '/script>';
+document.write(fhp_wt);
+//--></script>
+<!-- FC2, inc.-->
+<img src="http://media.fc2.com/counter_img.php?id=50" style="visibility:hidden" alt="inserted by FC2 system" width="0" height="0">
+<!-- FC2, inc.-->
+<script type="text/javascript"><!--
+var fhp_c_pc = navigator.userAgent.toLowerCase();
+var fhp_ie = ((fhp_c_pc.indexOf("msie") != -1) && (fhp_c_pc.indexOf("opera") == -1));
+var fhp_cs, fhp_wt, fhp_dm;
+var fhp_rnd = Math.floor(Math.random()*99999999999);
+if (fhp_ie) {
+	fhp_cs = document.charset;
+}else{
+	fhp_cs = document.characterSet;
+}
+fhp_dm = document.location;
+fhp_wt = '<' + 'script src="http://web.fc2.com/footer/footer.php?cs=' + fhp_cs + '&dm=' + fhp_dm + '&rnd=' + fhp_rnd + '" charset="UTF-8"><' + '/script>';
+document.write(fhp_wt);
+//--></script>
+<!-- FC2, inc.-->
+<img src="http://media.fc2.com/counter_img.php?id=50" style="visibility:hidden" alt="inserted by FC2 system" width="0" height="0" />
+<!-- FC2, inc.-->
+</body>
+
+<table align="center" cellspacing="3" id="table1">
+<tr bgcolor="#070007" height="20" style="color:white">
+		<td align="center">◎</td>
+		<td></td>
+		<td align="center">LR</td>
+		<td align="center">music title</td>
+		<td align="center">original artist</td>
+		<td align="center">score site</td>
+
+		<td width="260px" align="center">comment</td>
+  <script language="javascript" type="text/javascript">
+<!--//
+var mname = [
+[1,"<font color='red'>◎0</font>",
+"LOVE☆BEAM (orange summer mix) -NAGTHER　皿-",
+"181385",
+"<a href='http://nothing.sh/~manbow/event/event.cgi?action=More_def&num=3&event=33'>honey princess</a>",
+"<a href='http://ux.getuploader.com/nagsa_bms/download/1/sara_love_orange.zip'>水橋なぐさ</a>",
+"",
+],
+[2,"<font color='red'>◎4</font>",
+"Maharaja Trance -Full Mahara Jacket-",
+"69452",
+"<a href='http://web.archive.org/web/20020817193500/http://isweb13.infoseek.co.jp/art/yuhno/poem/maharaja.exe'>Queen P.A.L</a>",
+"<a href='http://www.geocities.jp/penmawashi2000/'>Ark-Z</a>",
+"2010 DPBMSタブにあります",
+],
+[3,"<font color='red'>◎4</font>",
+"Karakuri Plum _SCR ver",
+"181704",
+"<a href='http://www1.axfc.net/uploader/C/so/167738'>Mitsu☆</a>",
+"<a href='http://sdrv.ms/1bZPbBm'>MIND</a>",
+"",
+],
+[4,"<font color='red'>◎5</font>",
+"SMALL BEN [7KEY KASATHER◎]",
+"181523",
+"<a href='http://manbow.nothing.sh/event/event.cgi?action=More_def&num=3&event=72'>kireji</a>",
+"<a href='http://absolute.pv.land.to/turntable/upload.html'>KASAKO</a>",
+"up0024.zip",
+],
+[5,"<font color='red'>◎5</font>",
+"locked girl@Scarlet-Devils Palace [ANOTHER]",
+"96971",
+"<a href='http://page.freett.com/ykyk00/'>くっちー</a>",
+"",
+"",
+],
+[6,"<font color='red'>◎12</font>",
+"FIRST COMES SCRATCHING [ANOTHER]",
+"81884",
+"<a href='https://onedrive.live.com/?cid=D34BFC70CBE5E695&id=D34BFC70CBE5E695%21205&sc=documents&ppud=4'>ETIA.</a>",
+"",
+"発狂BMS第2難易度表補完skydriveをお借りしました",
+],
+[7,"<font color='red'>◎12</font>",
+"Here we go！(TM edit) [KASATHER◎]",
+"181706",
+"<a href='http://onedrive.live.com/?cid=3763CEB14F983372#cid=3763CEB14F983372&id=3763CEB14F983372!173'>Awesomeman</a>",
+"<a href='http://onedrive.live.com/?cid=3763CEB14F983372#cid=3763CEB14F983372&id=3763CEB14F983372!161'>KASAKO</a>",
+"miamibass[KASATHER◎]",
+],
+[8,"<font color='red'>◎16</font>",
+"人　身　事　故　で　高　速　皿",
+"180859",
+"<a href='http://skydrive.live.com/?cid=40805CD20B6241C6&id=40805CD20B6241C6!194'>VjHEaRTs/yo.t/UN&CO/落合/UnK-now/37E</a>",
+"<a href='http://akred.web.fc2.com/ak-red-home.html'>赤い人</a>",
+"",
+],
+[9,"<font color='red'>◎16</font>",
+"FREEDOM DiVE [◎]",
+"180860",
+"<a href='http://skydrive.live.com/?cid=FD93B4F2CB8CD95F&id=FD93B4F2CB8CD95F%21105'>xi</a>",
+"<a href='http://akred.web.fc2.com/ak-red-home.html'>赤い人</a>",
+"発狂曲の保管",
+],
+[10,"<font color='red'>◎16</font>",
+"スクラッチマニア！このこゆびおれろ！ [WriStCUttEr]",
+"179704",
+"<a href='http://manbow.nothing.sh/event/event.cgi?action=More_def&num=212&event=65'>常夏ハニーパイ</a>",
+"<a href='http://www.nicovideo.jp/watch/sm21426592'>ZEN-SOQ</a>",
+"",
+]];
+  for (var i=0;i<mname.length;i++) {
+if(mname[i][0]==1||mname[i][0]==2||mname[i][0]==4||mname[i][0]==6||mname[i][0]==8)
+  		document.write("<tr height='10' style='background-color:#003300'><td colspan='9'>");
+     document.write("<tr class='tr_ng' id='#tr"+mname[i][0]+"' style='color:black;font-size:12px' height='14'>"+
+     "<td width='45' align='center'>"+mname[i][1]+
+     "<td><input type=button value='   '>"+
+
+     "<td width='16'><a href='http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=ranking&bmsid="+mname[i][3]+"'><center>IR</center></a>"+
+     "<td>"+mname[i][2]+
+     "<td>"+mname[i][4]+
+     "<td>"+mname[i][5]+
+     "<td>"+mname[i][6]+
+     "\n");
+  }
+  
+  //-->
+  </script>
+  </table>
+<div align="center" ><strong><a href="index.html" target="_top">戻る</a></strong></div>
+
+
+</html>

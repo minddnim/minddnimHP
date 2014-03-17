@@ -1,0 +1,37 @@
+  document.write("<tbody>\n")
+  for (var i=0;i<mname.length;i++) {
+     document.write(
+     "<tr class='tr_ng' id='#tr"+mname[i][0]+"' style='color:black;font-size:12px' height='14'>"+
+     "<td width='30' align='center'>" + "<font color='black'>" + mname[i][0] + "</font></td>"+
+     "<td width='150' align='center'><a href='http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=mypage&playerid="+mname[i][2]+"'>" + mname[i][1] + "</a></td>"+
+     "<td width='120' align='center'>" + mname[i][3] + "/" + mname[i][4] + "/" + mname[i][5] + "</td>"+
+     "<td width='60' align='center'>" + "<font color='black'>" + mname[i][6] + "</font></td>"+
+     "<td width='60' align='center'>" + "<font color='black'>" + mname[i][7] + "</font></td>"+
+     "<td width='60' align='center'>" + "<font color='black'>" + mname[i][8] + "</font></td>"+
+     "<td width='60' align='center'>" + "<font color='black'>" + mname[i][9] + "</font></td>"+
+     "<td width='60' align='center'>" + "<font color='black'>" + mname[i][10] + "</font></td>"+
+     "<td width='60' align='center'>" + "<font color='black'>" + mname[i][11] + "</font></td>"+
+     "<td width='60' align='center'>" + "<font color='black'>" + mname[i][12] + "</font></td>"+
+     "<td width='60' align='center'>" + "<font color='black'>" + mname[i][13] + "</font></td>"+
+     "<td width='60' align='center'>" + "<font color='black'>" + mname[i][14] + "</font></td>"+
+     "<td width='60' align='center'>" + "<font color='black'>" + mname[i][15] + "</font></td>"+
+     "</tr>\n"
+     );
+
+  }
+  document.write("</tbody>\n")
+  document.write("</table>\n")
+  //-->
+  </script>
+  
+<script type="text/javascript">
+   $(document).ready(function() 
+       { 
+           $("#table1").tablesorter();
+       }
+   ); 
+</script>
+<div align="center" ><strong><a href="index.html" target="_top">–ß‚é</a></strong></div>
+
+
+</html>

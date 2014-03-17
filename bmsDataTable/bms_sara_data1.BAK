@@ -1,0 +1,938 @@
+
+<!DOCTYPE HTML PLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	<title>皿難易度表(メイン)</title>
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+<link rel="stylesheet" href="./themes/green/style.css" type="text/css" media="print, projection, screen" />
+<script src="./jquery-latest.js" type="text/javascript"></script> 
+<script src="./jquery.tablesorter.min.js" type="text/javascript"></script> 
+<Meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+<style type="text/css">
+.tr1 {
+  color:#cccccc;
+}
+.tr_ok {
+  background-color:#00FFFF;
+}
+.tr_ng {
+  background-color:#C0C0C0;
+}
+.tr_hd{
+  background-color:red;
+}
+.tr_ez{
+  background-color:#66FF99
+  }
+.tr_fc{
+  background-color:#FFD700
+  }
+a:link{
+	color:"richblue";
+}
+a:visited{
+	color:"limegreen";
+}
+a:hover{
+	color:"red";
+	background-color:"yellow";
+}
+a:active{
+	color:"red";
+	background-color:"yellow";
+}
+</style>
+
+<script language="javascript" type="text/javascript">
+<!--
+// データの読み込み
+function getsc() {
+	var m = new Date().getMonth();
+	if (m%2==1){
+		document.body.style.filter="progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr='#ccccccff', EndColorStr='#ffffffff')";
+		document.body.text="black";
+	}else{
+		document.body.style.filter="progid:DXImageTransform.Microsoft.Gradient(GradientType=1,StartColorStr='#cc000033', EndColorStr='#ff000000')";
+		document.body.text="white";
+	}
+}
+
+// クッキーの読み込み
+function loadCookie(name) {
+  var bData = "";
+  var cName = name + "~"; // クッキー名
+  var cCookie = document.cookie+";";
+  var str = cCookie.indexOf(cName);
+  if(str != -1) {
+     end = cCookie.indexOf(";",str);
+     bData = unescape(cCookie.substring(str + cName.length, end));
+  }
+  return bData;
+}
+
+// クッキーの書き込み
+function saveCookie(name,dValue) {
+  var cName = name + "~"; // クッキー名
+  var cDays = 365; // データの保存日数
+  var setPre = new Date();
+  setPre.setTime(setPre.getTime() + (cDays*1000*24*3600));
+  var prd = setPre.toGMTString();
+  document.cookie = cName + escape(dValue) + ";expires=" + prd;
+}
+// クリアデータのの削除
+function deletedt() {
+  cName = "tmpdt~"; // 削除するクッキー名
+  dTime = new Date();
+  dTime.setYear(dTime.getYear() - 1);
+  document.cookie = cName + ";expires=" + dTime.toGMTString();
+}
+
+var CookieValue = new Array(2000); //* 個のデータを保存できる
+
+//CookieValue の初期化 と読み込み、ボタンの onclick イベント設定
+function initCookieValue() {
+  
+  for (var i=0;i < CookieValue.length;i++) CookieValue[i] = 0;
+  
+  var imps = document.getElementById("table1").getElementsByTagName("input");
+  var nVal = "" + loadCookie("tmpdt");
+
+//  alert("Cookies="+nVal);
+
+  for (var i=0;i < nVal.length;i++)
+     CookieValue[i] = nVal.charAt(i)-0;
+
+  for (var i=0;i < imps.length;i++) {
+     imps[i].onclick=function(e) {
+        var o;
+        if (window.event) e = window.event;
+        o = e.srcElement ? e.srcElement : e.target;
+
+        while (o.nodeName.toLowerCase() != "tr") o = o.parentNode;
+
+        var idx = parseInt(o.id.replace("#tr",""),10);
+        if (o.className == "tr_ng") 
+        {
+           o.className = "tr_ez";
+           CookieValue[idx] = 1;
+        }
+        else if (o.className == "tr_ez")
+        {
+        o.className = "tr_ok";
+        CookieValue[idx] = 2;
+        
+        }
+        
+        
+　　　　else if (o.className == "tr_ok")
+        {
+        o.className = "tr_hd";
+        CookieValue[idx] = 3;
+
+        
+        }
+　　　　else if (o.className == "tr_hd")
+        {
+        o.className = "tr_fc";
+        CookieValue[idx] = 4;
+        
+        }
+
+        
+        else {
+           o.className = "tr_ng";
+           CookieValue[idx] = 0;
+        }
+        backupCookie();
+     }
+var tr;
+switch(CookieValue[mname[i][0]]){
+case 0:
+tr="tr_ng";
+break;
+case 1:
+tr="tr_ez";
+break;
+case 2:
+tr="tr_ok";
+break;
+case 3:
+tr="tr_hd";
+break;
+case 4:
+tr="tr_fc";
+break;
+}
+document.getElementById("#tr"+mname[i][0]).className = tr;
+
+}
+function backupCookie() {
+  saveCookie("tmpdt",CookieValue.join(""));
+}
+}
+-->
+
+</script>
+</head><BODY bgcolor=#000000 text="#FFFFFF" onload="initCookieValue()&getsc()"><!--  背景色とかそんなん -->
+<!-- St-HP-H -->
+
+ 
+
+<!-- En-HP-H -->
+
+
+
+
+<!-- 
+var fhp_c_pc = navigator.userAgent.toLowerCase();
+var fhp_ie = ((fhp_c_pc.indexOf("msie") != -1) && (fhp_c_pc.indexOf("opera") == -1));
+var fhp_cs, fhp_wt, fhp_dm;
+
+if (fhp_ie) {
+        fhp_cs = document.charset;
+}else{
+        fhp_cs = document.characterSet;
+}
+fhp_dm = encodeURI(document.location);
+
+fhp_wt = "";
+fhp_wt = '<' + 'script src="http://web.fc2.com/header.php?cs=' + fhp_cs + '&dm=' + fhp_dm + '" charset="UTF-8"><' + '/script>';
+fhp_wt += '<' + 'script src="http://web.fc2.com/footer/footer.php?cs=' + fhp_cs + '&dm=' + fhp_dm + '"><' + '/script>';
+document.write(fhp_wt);
+//--></script>
+<!-- FC2, inc.-->
+<img src="http://media.fc2.com/counter_img.php?id=50" style="visibility:hidden" alt="inserted by FC2 system" width="0" height="0">
+<!-- FC2, inc.-->
+<script type="text/javascript"><!--
+var fhp_c_pc = navigator.userAgent.toLowerCase();
+var fhp_ie = ((fhp_c_pc.indexOf("msie") != -1) && (fhp_c_pc.indexOf("opera") == -1));
+var fhp_cs, fhp_wt, fhp_dm;
+var fhp_rnd = Math.floor(Math.random()*99999999999);
+if (fhp_ie) {
+	fhp_cs = document.charset;
+}else{
+	fhp_cs = document.characterSet;
+}
+fhp_dm = document.location;
+fhp_wt = '<' + 'script src="http://web.fc2.com/footer/footer.php?cs=' + fhp_cs + '&dm=' + fhp_dm + '&rnd=' + fhp_rnd + '" charset="UTF-8"><' + '/script>';
+document.write(fhp_wt);
+//--></script>
+<!-- FC2, inc.-->
+<img src="http://media.fc2.com/counter_img.php?id=50" style="visibility:hidden" alt="inserted by FC2 system" width="0" height="0" />
+<!-- FC2, inc.-->
+</body>
+
+<table align="center" cellspacing="3" id="table1" class="tablesorter">
+	<thead>
+		<tr>
+			<th align="center">◎</th>
+			<th></th>
+			<th align="center">LR</th>
+			<th align="center">music title</th>
+			<th align="center">皿の枚数</th>
+			<th align="center">Total Notes</th>
+			<th align="center">皿の割合</th>
+			<th align="center">Total値</th>
+			<th align="center">ゲージ上昇率</th>
+		</tr>
+	</thead>
+  <script language="javascript" type="text/javascript">
+<!--//
+var mname = [
+[1,"◎1",
+"reikon girl@Genso-kyo (NORMAL7)",
+"120135",
+"617",
+"645",
+"0.96",
+"450",
+"0.7",
+],
+[2,"◎1",
+"run -SP NANATHER 皿-",
+"81897",
+"392",
+"1379",
+"0.28",
+"380",
+"0.28",
+],
+[3,"◎1",
+"初めだけ皿じゃない",
+"98001",
+"559",
+"613",
+"0.91",
+"230",
+"0.38",
+],
+[4,"◎1",
+"macaron (゜皿゜)",
+"122826",
+"426",
+"942",
+"0.45",
+"390",
+"0.41",
+],
+[5,"◎1",
+"Blue. by Hand Made Socket",
+"18366",
+"748",
+"1219",
+"0.61",
+"1219",
+"1",
+],
+[6,"◎1",
+"HE is an Energizer(Pt.2) - SCRATCH++ -",
+"107045",
+"342",
+"911",
+"0.38",
+"600",
+"0.66",
+],
+[7,"◎2",
+"±０[7keys/HYPER]",
+"140919",
+"437",
+"877",
+"0.5",
+"300",
+"0.34",
+],
+[8,"◎2",
+"Eastern Beats [NANA-皿]",
+"80260",
+"347",
+"817",
+"0.42",
+"250",
+"0.31",
+],
+[9,"◎2",
+"reikon girl@Genso-kyo (HYPER7)",
+"120137",
+"617",
+"1122",
+"0.55",
+"450",
+"0.4",
+],
+[10,"◎2",
+"HE is an Energizer(Joker-S-)",
+"122668",
+"703",
+"1290",
+"0.54",
+"480",
+"0.37",
+],
+[11,"◎2",
+"東の国のFLYING PAPARAZZI！[ hinather 皿 ]",
+"115647",
+"630",
+"1306",
+"0.48",
+"445",
+"0.34",
+],
+[12,"◎3",
+"locked girl@Scarlet-Devils Palace [アグニレイディアンス]",
+"115476",
+"592",
+"1219",
+"0.49",
+"370",
+"0.3",
+],
+[13,"◎3",
+"Red-rize B172 mix [yumether◎]",
+"81481",
+"624",
+"1376",
+"0.45",
+"315",
+"0.23",
+],
+[14,"◎3",
+"SEMITHESIZER",
+"93736",
+"694",
+"694",
+"1",
+"320",
+"0.46",
+],
+[15,"◎3",
+"スクラッチマニア！このゆびとまれ！[ANOTHER]",
+"77986",
+"464",
+"1263",
+"0.37",
+"350",
+"0.28",
+],
+[16,"◎3",
+"祭月(皿祭)",
+"132517",
+"879",
+"879",
+"1",
+"350",
+"0.4",
+],
+[17,"◎3",
+"HE is an Energizer(Joker-S+-)",
+"123060",
+"757",
+"1343",
+"0.56",
+"500",
+"0.37",
+],
+[18,"◎3",
+"P8107 [yumether◎]",
+"126849",
+"658",
+"1404",
+"0.47",
+"350",
+"0.25",
+],
+[19,"◎3",
+"四十五年ノ雪桜",
+"129208",
+"790",
+"1858",
+"0.43",
+"500",
+"0.27",
+],
+[20,"◎4",
+"±０[7keys/ANOTHER]",
+"140984",
+"528",
+"1157",
+"0.46",
+"300",
+"0.26",
+],
+[21,"◎4",
+"Jack in the Vox (皿owatazy)",
+"152229",
+"644",
+"1402",
+"0.46",
+"573",
+"0.41",
+],
+[22,"◎4",
+"wind-line(AYATHER)",
+"64981",
+"401",
+"1183",
+"0.34",
+"270",
+"0.23",
+],
+[23,"◎4",
+"スプラッシュコード－０６ (｀皿´)",
+"115648",
+"563",
+"1334",
+"0.42",
+"440",
+"0.33",
+],
+[24,"◎4",
+"祭月 [yumether◎]",
+"132474",
+"718",
+"1370",
+"0.52",
+"350",
+"0.26",
+],
+[25,"◎4",
+"春の湊に[NANATIC ◎]",
+"132473",
+"556",
+"1255",
+"0.44",
+"350",
+"0.28",
+],
+[26,"◎4",
+"Fastraffic　[｀皿´]",
+"125325",
+"818",
+"1602",
+"0.51",
+"600",
+"0.37",
+],
+[27,"◎4",
+"皿投げプリンセス[HYPER]",
+"158213",
+"737",
+"1371",
+"0.54",
+"555",
+"0.4",
+],
+[28,"◎5",
+"<('ヮ')>",
+"77091",
+"556",
+"1286",
+"0.43",
+"573",
+"0.45",
+],
+[29,"◎5",
+"Ancient Memory H mix [yumether◎]",
+"121440",
+"552",
+"1239",
+"0.45",
+"333",
+"0.27",
+],
+[30,"◎5",
+"Lucky Like Star[MD]",
+"175703",
+"606",
+"1490",
+"0.41",
+"450",
+"0.3",
+],
+[31,"◎5",
+"Magical Love Scratching",
+"122445",
+"1079",
+"1911",
+"0.56",
+"550",
+"0.29",
+],
+[32,"◎5",
+"reikon girl@Genso-kyo (ANOTHER7)",
+"120219",
+"617",
+"1645",
+"0.38",
+"450",
+"0.27",
+],
+[33,"◎5",
+"SEMITHESIZER",
+"93674",
+"656",
+"1521",
+"0.43",
+"500",
+"0.33",
+],
+[34,"◎5",
+"ting ting [yumether◎]",
+"81551",
+"704",
+"1545",
+"0.46",
+"380",
+"0.25",
+],
+[35,"◎6",
+"Chinese Typhoon [台(^^)]",
+"93921",
+"928",
+"1605",
+"0.58",
+"450",
+"0.28",
+],
+[36,"◎6",
+"NANI-KORE [7keys 皿Another]",
+"116084",
+"544",
+"1953",
+"0.28",
+"500",
+"0.26",
+],
+[37,"◎6",
+"決戦！サルーイン -Final Battle with Saruin- [皿の雨]",
+"119955",
+"1437",
+"2772",
+"0.52",
+"720",
+"0.26",
+],
+[38,"◎6",
+"断罪魔女 -Badhabh Cath- [断◎罪]",
+"119056",
+"995",
+"1741",
+"0.57",
+"550",
+"0.32",
+],
+[39,"◎6",
+"秩序の秋桜 [皿-Normal-]",
+"112159",
+"777",
+"1554",
+"0.5",
+"500",
+"0.32",
+],
+[40,"◎6",
+"Love & Justice [RIETHER]",
+"175778",
+"668",
+"1357",
+"0.49",
+"400",
+"0.29",
+],
+[41,"◎6",
+"Yummy Dancefloor!! [SC]",
+"168825",
+"857",
+"1780",
+"0.48",
+"596",
+"0.33",
+],
+[42,"◎6",
+"Into the sunset [HYPER]",
+"7359",
+"467",
+"700",
+"0.67",
+"360",
+"0.51",
+],
+[43,"◎6",
+"squartatrice -あたしって、ほんと皿-",
+"125765",
+"617",
+"1352",
+"0.46",
+"591",
+"0.44",
+],
+[44,"◎7",
+"Ophelia[misther◎]",
+"133543",
+"1087",
+"1646",
+"0.66",
+"600",
+"0.36",
+],
+[45,"◎7",
+"Strawberry Crisis!! -苺皿-",
+"107196",
+"989",
+"1746",
+"0.57",
+"480",
+"0.27",
+],
+[46,"◎8",
+"Angelic layer [^皿^]",
+"115652",
+"1220",
+"2513",
+"0.49",
+"550",
+"0.22",
+],
+[47,"◎8",
+"SAMBISTA[皿]",
+"77283",
+"602",
+"1351",
+"0.45",
+"400",
+"0.3",
+],
+[48,"◎8",
+"God In Love -Hardcore remix-(ポロロッカ)",
+"79604",
+"1025",
+"1718",
+"0.6",
+"470",
+"0.27",
+],
+[49,"◎8",
+"モリオンの姫 [yumether◎]",
+"77698",
+"758",
+"1771",
+"0.43",
+"400",
+"0.23",
+],
+[50,"◎8",
+"rainy beauty [yumether]",
+"77002",
+"575",
+"1863",
+"0.31",
+"380",
+"0.2",
+],
+[51,"◎9",
+"ヒマワリの丘 -Sunny Wing Mix- Core[向日葵の皿]",
+"76732",
+"839",
+"1736",
+"0.48",
+"400",
+"0.23",
+],
+[52,"◎9",
+"Koishi ～Closed EyEs [SCRACH]",
+"120511",
+"697",
+"1468",
+"0.47",
+"450",
+"0.31",
+],
+[53,"◎10",
+"<('ヮ')> 灼熱のカーニバル",
+"77257",
+"562",
+"1334",
+"0.42",
+"573",
+"0.43",
+],
+[54,"◎10",
+"FIRST COMES SCRATCHING [皿]",
+"115646",
+"899",
+"1600",
+"0.56",
+"400",
+"0.25",
+],
+[55,"◎10",
+"水晶世界 ～Fracture～ [yumether◎]",
+"80791",
+"801",
+"1459",
+"0.55",
+"320",
+"0.22",
+],
+[56,"◎10",
+"Happico 皿 Happico",
+"128473",
+"1057",
+"2109",
+"0.5",
+"700",
+"0.33",
+],
+[57,"◎10",
+"Lang Tone",
+"84321",
+"816",
+"1767",
+"0.46",
+"370",
+"0.21",
+],
+[58,"◎11",
+"Ancient Memory A mix [yumether◎]",
+"121441",
+"1213",
+"2368",
+"0.51",
+"500",
+"0.21",
+],
+[59,"◎11",
+"CHASER [^皿^]",
+"77352",
+"941",
+"1730",
+"0.54",
+"350",
+"0.2",
+],
+[60,"◎11",
+"Mr.Burning Prince[◎]",
+"107112",
+"533",
+"1256",
+"0.42",
+"450",
+"0.36",
+],
+[61,"◎12",
+"Cowardly Clime [yumether◎]",
+"105201",
+"753",
+"1671",
+"0.45",
+"380",
+"0.23",
+],
+[62,"◎12",
+"Cross breed(NANATHER 皿)",
+"76979",
+"1026",
+"1743",
+"0.59",
+"450",
+"0.26",
+],
+[63,"◎12",
+"VALLISTA [yumether◎]",
+"115414",
+"595",
+"1700",
+"0.35",
+"444",
+"0.26",
+],
+[64,"◎13",
+"clutch[皿ANOTHER]",
+"135739",
+"748",
+"1570",
+"0.48",
+"350",
+"0.22",
+],
+[65,"◎13",
+"God In Love -Hardcore remix-(ポロロロロロロロロッカ)",
+"79605",
+"1158",
+"1894",
+"0.61",
+"500",
+"0.26",
+],
+[66,"◎13",
+"ワルツ第4番ロ短調-皿狼のワルツ-",
+"163017",
+"636",
+"1694",
+"0.38",
+"540",
+"0.32",
+],
+[67,"◎14",
+"End Time A⇒Side[MD]",
+"176064",
+"744",
+"1332",
+"0.56",
+"470",
+"0.35",
+],
+[68,"◎14",
+"PEACE BREAKER[SCRACH]",
+"120338",
+"813",
+"1779",
+"0.46",
+"560",
+"0.31",
+],
+[69,"◎15",
+"DISCHARGE RUSH",
+"84358",
+"1000",
+"2578",
+"0.39",
+"777",
+"0.3",
+],
+[70,"◎15",
+"ＤＱⅢ　Battle -Scratch-",
+"95683",
+"666",
+"1464",
+"0.45",
+"434",
+"0.3",
+],
+[71,"◎15",
+"PEACE BREAKER[SCRACH EXTEND]",
+"121098",
+"940",
+"1943",
+"0.48",
+"615",
+"0.32",
+],
+[72,"◎15",
+"Run,Curry,Run [辛皿]",
+"120121",
+"1128",
+"2161",
+"0.52",
+"500",
+"0.23",
+],
+[73,"◎15",
+"Shade of Gloria [真紅の栄光]",
+"176586",
+"878",
+"2269",
+"0.39",
+"470",
+"0.21",
+]];
+  document.write("<tbody>\n")
+  for (var i=0;i<mname.length;i++) {
+     document.write(
+     "<tr class='tr_ng' id='#tr"+mname[i][0]+"' style='color:black;font-size:12px' height='14'>"+
+     "<td width='45' align='center'>"+ "<font color='black'>" + mname[i][1]+"</font></td>"+
+     "<td><input type=button value='   '>"+
+     "<td width='16'><a href='http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=ranking&bmsid="+mname[i][3]+"'><center>IR</center></a></td>"+
+     "<td>" + "<font color='black'>" + mname[i][2] + "</font></td>"+
+     "<td>" + "<font color='black'>" + mname[i][4] + "</font></td>"+
+     "<td>" + "<font color='black'>" + mname[i][5] + "</font></td>"+
+     "<td>" + "<font color='black'>" + mname[i][6] + "</font></td>"+
+     "<td>" + "<font color='black'>" + mname[i][7] + "</font></td>"+
+     "<td>" + "<font color='black'>" + mname[i][8] + "</font></td>"+ "</tr>\n"
+     );
+
+  }
+  document.write("</tbody>\n")
+  document.write("</table>\n")
+  //-->
+  </script>
+  
+<script type="text/javascript">
+   $(document).ready(function() 
+       { 
+           $("#table1").tablesorter({
+            headers: {
+               1: { sorter: false },
+               2: { sorter: false }
+            }
+	 });
+       }
+   ); 
+</script>
+<div align="center" ><strong><a href="index.html" target="_top">戻る</a></strong></div>
+
+
+</html>

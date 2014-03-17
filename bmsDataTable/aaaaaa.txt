@@ -1,0 +1,74 @@
+color	level	musicTitle	BmsID	皿の枚数	トータルノート	皿の割合	Total値	ゲージ上昇率
+	◎1	reikon girl@Genso-kyo (NORMAL7)	120135	617	645	0.96	450	0.7
+	◎1	run -SP NANATHER 皿-	81897	392	1379	0.28	380	0.28
+	◎1	初めだけ皿じゃない	98001	559	613	0.91	230	0.38
+	◎1	macaron (゜皿゜)	122826	426	942	0.45	390	0.41
+	◎1	Blue. by Hand Made Socket	18366	748	1219	0.61	1219	1
+	◎1	HE is an Energizer(Pt.2) - SCRATCH++ -	107045	342	911	0.38	600	0.66
+	◎2	±０[7keys/HYPER]	140919	437	877	0.5	300	0.34
+	◎2	Eastern Beats [NANA-皿]	80260	347	817	0.42	250	0.31
+	◎2	reikon girl@Genso-kyo (HYPER7)	120137	617	1122	0.55	450	0.4
+	◎2	HE is an Energizer(Joker-S-)	122668	703	1290	0.54	480	0.37
+	◎2	東の国のFLYING PAPARAZZI！[ hinather 皿 ]	115647	630	1306	0.48	445	0.34
+	◎3	locked girl@Scarlet-Devils Palace [アグニレイディアンス]	115476	592	1219	0.49	370	0.3
+	◎3	Red-rize B172 mix [yumether◎]	81481	624	1376	0.45	315	0.23
+	◎3	SEMITHESIZER	93736	694	694	1	320	0.46
+	◎3	スクラッチマニア！このゆびとまれ！[ANOTHER]	77986	464	1263	0.37	350	0.28
+	◎3	祭月(皿祭)	132517	879	879	1	350	0.4
+	◎3	HE is an Energizer(Joker-S+-)	123060	757	1343	0.56	500	0.37
+	◎3	P8107 [yumether◎]	126849	658	1404	0.47	350	0.25
+	◎3	四十五年ノ雪桜	129208	790	1858	0.43	500	0.27
+	◎4	±０[7keys/ANOTHER]	140984	528	1157	0.46	300	0.26
+	◎4	Jack in the Vox (皿owatazy)	152229	644	1402	0.46	573	0.41
+	◎4	wind-line(AYATHER)	64981	401	1183	0.34	270	0.23
+	◎4	スプラッシュコード－０６ (｀皿´)	115648	563	1334	0.42	440	0.33
+	◎4	祭月 [yumether◎]	132474	718	1370	0.52	350	0.26
+	◎4	春の湊に[NANATIC ◎]	132473	556	1255	0.44	350	0.28
+	◎4	Fastraffic　[｀皿´]	125325	818	1602	0.51	600	0.37
+	◎4	皿投げプリンセス[HYPER]	158213	737	1371	0.54	555	0.4
+	◎5	<('ヮ')>	77091	556	1286	0.43	573	0.45
+	◎5	Ancient Memory H mix [yumether◎]	121440	552	1239	0.45	333	0.27
+	◎5	Lucky Like Star[MD]	175703	606	1490	0.41	450	0.3
+	◎5	Magical Love Scratching	122445	1079	1911	0.56	550	0.29
+	◎5	reikon girl@Genso-kyo (ANOTHER7)	120219	617	1645	0.38	450	0.27
+	◎5	SEMITHESIZER	93674	656	1521	0.43	500	0.33
+	◎5	ting ting [yumether◎]	81551	704	1545	0.46	380	0.25
+	◎6	Chinese Typhoon [台(^^)]	93921	928	1605	0.58	450	0.28
+	◎6	NANI-KORE [7keys 皿Another]	116084	544	1953	0.28	500	0.26
+	◎6	決戦！サルーイン -Final Battle with Saruin- [皿の雨]	119955	1437	2772	0.52	720	0.26
+	◎6	断罪魔女 -Badhabh Cath- [断◎罪]	119056	995	1741	0.57	550	0.32
+	◎6	秩序の秋桜 [皿-Normal-]	112159	777	1554	0.5	500	0.32
+	◎6	Love & Justice [RIETHER]	175778	668	1357	0.49	400	0.29
+	◎6	Yummy Dancefloor!! [SC]	168825	857	1780	0.48	596	0.33
+	◎6	Into the sunset [HYPER]	7359	467	700	0.67	360	0.51
+	◎6	squartatrice -あたしって、ほんと皿-	125765	617	1352	0.46	591	0.44
+	◎7	Ophelia[misther◎]	133543	1087	1646	0.66	600	0.36
+	◎7	Strawberry Crisis!! -苺皿-	107196	989	1746	0.57	480	0.27
+	◎8	Angelic layer [^皿^]	115652	1220	2513	0.49	550	0.22
+	◎8	SAMBISTA[皿]	77283	602	1351	0.45	400	0.3
+	◎8	God In Love -Hardcore remix-(ポロロッカ)	79604	1025	1718	0.6	470	0.27
+	◎8	モリオンの姫 [yumether◎]	77698	758	1771	0.43	400	0.23
+	◎8	rainy beauty [yumether]	77002	575	1863	0.31	380	0.2
+	◎9	ヒマワリの丘 -Sunny Wing Mix- Core[向日葵の皿]	76732	839	1736	0.48	400	0.23
+	◎9	Koishi ～Closed EyEs [SCRACH]	120511	697	1468	0.47	450	0.31
+	◎10	<('ヮ')> 灼熱のカーニバル	77257	562	1334	0.42	573	0.43
+	◎10	FIRST COMES SCRATCHING [皿]	115646	899	1600	0.56	400	0.25
+	◎10	水晶世界 ～Fracture～ [yumether◎]	80791	801	1459	0.55	320	0.22
+	◎10	Happico 皿 Happico	128473	1057	2109	0.5	700	0.33
+	◎10	Lang Tone	84321	816	1767	0.46	370	0.21
+	◎11	Ancient Memory A mix [yumether◎]	121441	1213	2368	0.51	500	0.21
+	◎11	CHASER [^皿^]	77352	941	1730	0.54	350	0.2
+	◎11	Mr.Burning Prince[◎]	107112	533	1256	0.42	450	0.36
+	◎12	Cowardly Clime [yumether◎]	105201	753	1671	0.45	380	0.23
+	◎12	Cross breed(NANATHER 皿)	76979	1026	1743	0.59	450	0.26
+	◎12	VALLISTA [yumether◎]	115414	595	1700	0.35	444	0.26
+	◎13	clutch[皿ANOTHER]	135739	748	1570	0.48	350	0.22
+	◎13	God In Love -Hardcore remix-(ポロロロロロロロロッカ)	79605	1158	1894	0.61	500	0.26
+	◎13	ワルツ第4番ロ短調-皿狼のワルツ-	163017	636	1694	0.38	540	0.32
+	◎14	End Time A⇒Side[MD]	176064	744	1332	0.56	470	0.35
+	◎14	PEACE BREAKER[SCRACH]	120338	813	1779	0.46	560	0.31
+	◎15	DISCHARGE RUSH	84358	1000	2578	0.39	777	0.3
+	◎15	ＤＱⅢ　Battle -Scratch-	95683	666	1464	0.45	434	0.3
+	◎15	PEACE BREAKER[SCRACH EXTEND]	121098	940	1943	0.48	615	0.32
+	◎15	"Run,Curry,Run [辛皿]"	120121	1128	2161	0.52	500	0.23
+	◎15	Shade of Gloria [真紅の栄光]	176586	878	2269	0.39	470	0.21
